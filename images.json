@@ -1,7 +1,7 @@
 {
     "images": [
         {
-            "imgPath": "img/places/australia.jpg",
+            "imgPath": "img/places/p",
             "imgLocation": "Australia",
             "description": "Loch Ard Gorge",
             "date": "01/01/2016"
@@ -78,5 +78,5 @@
             "description": "Istanbul",
             "date": "01/13/2016"
         }
-  ]
+    ]
 }

@@ -1,6 +1,6 @@
 let mCurrentIndex = 0 // Tracks the current image index
 let mImages = [] // Array to hold GalleryImage objects
-const mUrl = 'https://your-json-url.com' // Replace with actual JSON URL
+const mUrl = "images.json" // Replace with actual JSON URL
 const mWaitTime = 5000 // Timer interval in milliseconds
 
 $(document).ready(() => {
@@ -25,6 +25,26 @@ function fetchJSON() {
   // Use $.ajax here to request the JSON data from mUrl
   // On success, parse the JSON and push each image object into mImages array
   // After JSON is loaded, call swapPhoto() to display the first image
+
+  $.ajax({
+    url: mUrl,
+    dataType: 'json',
+    success: function (data) {
+      mImages = data.images;
+      let image = mImages[mCurrentIndex];
+      $('#photo').attr('src', image.imgPath);
+      $('.location').html(image.imgLocation);
+      $('.description').html(`Description: ${image.description}`);
+      $('.date').html(`Date: ${image.date}`);
+
+      console.log("This is a test to see if JSON file is loading!");
+      swapPhoto();
+    },
+    error: function () {
+      alert("Failed to load JSON file!");
+    }
+  })
+
 }
 
 // Function to swap and display the next photo in the slideshow

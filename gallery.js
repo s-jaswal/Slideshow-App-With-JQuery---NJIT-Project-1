@@ -52,6 +52,10 @@ function swapPhoto() {
   // Access mImages[mCurrentIndex] to update the image source and details
   // Update the #photo element's src attribute with the current image's path
   // Update the .location, .description, and .date elements with the current image's details
+  $('#photo').attr('src', imagData.imgPath);
+  $('.location').text(image.imgLocation);
+  $('.description').text(`Description: ${image.description}`);
+  $('.date').text(`Date: ${image.date}`);
 }
 
 // Advances to the next photo, loops to the first photo if the end of array is reached

@@ -73,7 +73,11 @@ function showNextPhoto() {
 function showPrevPhoto() {
   // Decrement mCurrentIndex and call swapPhoto()
   // Ensure it loops to the end if mCurrentIndex is less than 0
-
+  mCurrentIndex--
+  if (mCurrentIndex < 0) {
+    mCurrentIndex = mImages.length - 1
+  }
+  swapPhoto()
 }
 
 let timerInterval;
